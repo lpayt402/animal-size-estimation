@@ -1,29 +1,28 @@
 # Proposed validation
 
-This is a study plan, not a completed experiment. First define the intended decision and acceptable error with the eventual user of the estimate; there is no universal “useful” margin to assume.
+First define the intended task and acceptable error with its eventual user. There is no universal useful-error threshold.
 
-## Data and capture audit
+## Data and cue audit
 
-1. Collect or identify photos with permission and actual scale-measured liveweights linked to the same animal and capture/weighing session. Record weight units, scale/source, timestamps, animal identity, farm, camera/device, view, pose, and relevant population details when available. Do not substitute lot averages, advertised target weights, tape estimates, or synthetic values for scale labels.
-2. Audit candidate visual cues in a modest, permissioned sample before modeling: fixed chute/race rails, gate or panel spacing, scale platforms, feed/water troughs, buckets, fence posts, bales, vehicles, and deliberately placed rulers/boards. For each, record whether it is present, movable or installed, exact dimensions known or unknown, pixel span, angle, occlusion, and relative position/depth to the animal. For tags, record visible/legible status, confirmed SKU and component, manufacturer dimensions/source, tag angle, and pixel span. Unknown stays unknown.
-3. Record body pose, camera distance/height/angle and lens if available, breed/population, and image quality. Keep consent, image-use rights, and scale-label provenance as separate checks.
+Use permissioned photos paired to the same animal’s actual scale weight at a documented capture/weighing time. Record units, scale/source, animal, farm, camera, view, pose, and relevant population details. Keep lot averages, targets, tape estimates, and synthetic labels out of the scale-weight set.
 
-## Comparisons
+In a modest sample, inventory installed rails/gates/panels, scale platforms, troughs, buckets, posts, bales, vehicles, and deliberately placed rulers/boards. Record exact dimensions and source when known, whether fixed or movable, pixel span, angle, occlusion, and depth relative to the animal. For tags, record confirmed SKU/component, manufacturer dimensions, visibility, angle, and pixel span. Unknown stays unknown. Record camera geometry and image quality where available; treat consent, image rights, and label provenance as separate checks.
 
-After a basic label and duplicate audit, compare on the same animals and views:
+## Compare cue value
 
-- A simple training-set mean/median weight baseline
-- An image/body-measurement model without explicit reference-object features
+On the same animals and views, compare:
+- Training-set mean/median weight
+- Image/body measurements without explicit reference cues
 - The same model plus manually confirmed tag dimensions
-- The same model plus individually measured fixed-fixture or deliberate calibration-target cues
-- Context-only objects as a negative-control feature set
+- The same model plus verified fixture or deliberate-target measurements
+- Context-only objects as a negative control
 
-Fit all learned transforms and regressors on training animals only. If a small regression is enough, start there; do not presume custom vision training is needed. If image features already reveal a tag, use matched tag-masked or cue-ablated views to distinguish visible-object shortcuts from added scale information.
+Fit transforms and regressors on training animals only. Start with a small regression before assuming custom vision training is needed. If the image model can already see a tag, compare matched tag-masked images to test whether explicit tag scale adds signal.
 
-## Split, metrics, and stopping
+## Split and report
 
-Keep all photos, video frames, and sessions of one animal in one split. Use a farm- or source-held-out evaluation where the data allow it; otherwise state that generalization beyond the observed farms is untested. Keep an untouched test set for one predeclared comparison. Do not tune on it.
+Keep all views, frames, and sessions of each animal in one split. Hold out farms or sources when possible; otherwise limit generalization claims to observed conditions. Keep a final untouched test set and don’t tune on it.
 
-Report animal-level MAE and RMSE in kg, bias, MAPE where weights are positive, error within the pre-agreed absolute/relative tolerance, prediction coverage and abstention reasons, interval calibration/coverage if intervals are built, worst errors, and subgroup counts. Compare paired errors for the same eligible animals and also report how many animals are excluded because the cue is missing or unreadable. A good score on the tagged subset alone is not evidence of useful whole-herd coverage.
+Report animal-level MAE, RMSE, bias, and MAPE where valid; error within the pre-agreed tolerance; coverage, abstention reasons, and interval calibration if intervals are used; worst errors and subgroup counts. Show both paired eligible-animal errors and the fraction excluded for missing or unreadable cues.
 
-Stop or redesign if labels are not scale-verified, cue dimensions cannot be confirmed, animals/farms leak across splits, reference cues add no useful signal, or the estimate fails the agreed tolerance or coverage. Report exploratory results honestly; do not use an unvalidated estimate for dosing, treatment, sale settlement, or other consequential decisions.
+Stop or redesign if scale labels, cue dimensions, or split independence cannot be verified, or if cues add no useful signal or the model misses the agreed error/coverage target. Do not use unvalidated estimates for dosing, treatment, or sale settlement.
