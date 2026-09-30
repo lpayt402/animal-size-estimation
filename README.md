@@ -1,15 +1,17 @@
-# Could cattle photos estimate live weight?
+# Animal Size Estimation
 
-Could ordinary cattle photos, reliable visual size references, and a model trained on actual scale weights produce estimates accurate enough for a real task? Unknown so far. “Useful error” depends on the job and should be agreed before testing.
+Can photos and carefully documented visual size references help estimate defined animal dimensions? Separately, can image-derived measurements support a useful body-weight estimate for a specified species, population, and use case when tested against actual scale weights? These are different prediction targets. A result for one animal group, capture setup, or task does not establish performance for another.
 
-This is an exploratory research brief, not a livestock scale or validated model. No cattle photos, model, benchmark, or accuracy result is included.
+This is an exploratory research brief, not a validated measurement tool. No project dataset, model, benchmark, or accuracy result exists. The literature notes include cattle-specific studies; those studies do not establish general performance across species.
 
-## Cues to investigate
+## Visual references to investigate
 
-- Installed chute/race rails, gate or panel spacing, and scale platforms, only if fixture dimensions and camera setup are verified
-- A ruler or board deliberately placed near the animal’s body, or an ear tag with confirmed SKU and manufacturer dimensions
-- Troughs, buckets, hay bales, fence posts, and vehicles as scene context only; their size, position, and distance vary
+- A measured calibration target deliberately placed near the animal and aligned with the relevant measurement plane
+- Fixed rails, gates, panels, or platforms only when their dimensions and camera setup are verified and their relationship to the target plane is understood
+- Troughs, buckets, posts, bales, vehicles, and other scene objects as context only unless their dimensions and geometry are verified
 
-A known object measures local image scale; it does not reveal the cow’s full depth or volume. A tag may be small, tilted, or hidden, and sits on a different plane from much of the torso. Test its value rather than assume it.
+A known object calibrates its own image plane; it does not reveal the animal’s full depth or volume. A scale reference alone cannot turn a casual single view of a non-planar animal into complete 3D geometry. Test any reference cue rather than assuming it improves a result.
 
-Pair photos with the same animal’s actual scale weight. Compare an image/body-measurement baseline with tag and fixture cues, keep each animal’s views together, and define the acceptable error before evaluation. See [RESEARCH.md](RESEARCH.md) and [VALIDATION.md](VALIDATION.md). Don’t use an unvalidated estimate for dosing or sale settlement, or as a substitute for a scale.
+Define geometric size measures and body weight as separate targets. Pair dimension estimates with clearly defined physical measurements; pair any weight estimate with the same animal’s actual scale weight at a documented time. The relationship between visible dimensions and weight must be developed and validated for the specified species, population, and use case.
+
+See [RESEARCH.md](RESEARCH.md) and [VALIDATION.md](VALIDATION.md). Do not use an unvalidated estimate for consequential animal-care decisions, medication, or sale settlement, or as a substitute for appropriate direct measurements or a scale.
