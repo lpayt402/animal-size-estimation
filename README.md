@@ -1,6 +1,6 @@
 # Animal Size Estimation
 
-Can photos and carefully documented visual size references help estimate defined animal dimensions? Separately, can image-derived measurements support a useful body-weight estimate for a specified species, population, and use case when tested against actual scale weights? These are different prediction targets. A result for one animal group, capture setup, or task does not establish performance for another.
+This project asks two separate questions: can photos and documented visual references help estimate defined animal dimensions, and can image-derived measurements support a useful body-weight estimate for a specified species, population, and use case when tested against actual scale weights? These are different targets. A result for one animal group, capture setup, or task does not establish performance for another.
 
 This is an exploratory research brief, not a validated measurement tool. No project dataset, model, benchmark, or accuracy result exists. The literature notes include cattle-specific studies; those studies do not establish general performance across species.
 
