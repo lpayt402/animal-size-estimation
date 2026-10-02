@@ -19,4 +19,25 @@ A known object calibrates its own image plane; it does not reveal the animal’s
 
 Define geometric size measures and body weight as separate targets. Pair dimension estimates with clearly defined physical measurements; pair any weight estimate with the same animal’s actual scale weight at a documented time. The relationship between visible dimensions and weight must be developed and validated for the specified species, population, and use case.
 
+## Proposed evaluation outline
+
+This is a research outline, not an implemented or validated pipeline. No dataset or model is included; dimensions and body weight remain separate targets.
+
+```text
+DIMENSIONS — research question
+Photo + measured reference --> Candidate dimensions --> Compare with
+                                                        direct measurements
+
+BODY WEIGHT — separate future study
+Image measures + same-animal, same-time scale weights
+                         |
+                         v
+              Future species-specific model
+                         |
+                         v
+              Test on held-out animals
+```
+
+Any future study needs defined measurements and a specified species, population, capture setup, and use case. The outline makes no accuracy claim.
+
 See [RESEARCH.md](RESEARCH.md) and [VALIDATION.md](VALIDATION.md). Do not use an unvalidated estimate for consequential animal-care decisions, medication, or sale settlement, or as a substitute for appropriate direct measurements or a scale.
